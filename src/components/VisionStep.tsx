@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type { FormData } from '../types.ts';
 
-interface VisionStepProps {
+export interface VisionStepProps {
   formData: FormData;
   setFormData: (data: FormData) => void;
 }

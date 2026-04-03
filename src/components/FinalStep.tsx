@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type { FormData } from '../types.ts';
 
-interface FinalStepProps {
+export interface FinalStepProps {
   formData: FormData;
   handleSendEmail: () => void;
   isSending: boolean;

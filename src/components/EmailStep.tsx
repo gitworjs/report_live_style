@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Mail } from 'lucide-react';
 import type { FormData } from '../types.ts';
 
-interface EmailStepProps {
+export interface EmailStepProps {
   formData: FormData;
   setFormData: (data: FormData) => void;
 }

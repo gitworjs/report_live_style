@@ -1,6 +1,6 @@
 import type { FormData } from '../types.ts';
 
-interface DeepDiveStepProps {
+export interface DeepDiveStepProps {
   formData: FormData;
   setFormData: (data: FormData) => void;
 }

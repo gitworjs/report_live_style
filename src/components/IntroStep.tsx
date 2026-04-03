@@ -1,6 +1,6 @@
 import { ChevronRight, Utensils, Heart, Users } from 'lucide-react';
 
-interface IntroStepProps {
+export interface IntroStepProps {
   onNext: () => void;
 }
 

@@ -1,7 +1,7 @@
 import { Instagram, MapPin, Youtube, Users, Smartphone } from 'lucide-react';
 import type { FormData } from '../types.ts';
 
-interface HabitsStepProps {
+export interface HabitsStepProps {
   formData: FormData;
   setFormData: (data: FormData) => void;
   handleCheckbox: (field: string, value: string) => void;
