@@ -6,6 +6,7 @@ interface SurveyContextType {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   handleCheckbox: (field: string, value: string) => void;
   resetSurvey: () => void;
+  resetSurveyExceptEmail: () => void;
 }
 
 const STORAGE_KEY = 'survey_form_data';
@@ -61,8 +62,15 @@ export const SurveyProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     localStorage.removeItem(STORAGE_KEY);
   }, []);
 
+  const resetSurveyExceptEmail = useCallback(() => {
+    setFormData((prev) => ({
+      ...initialData,
+      email: prev.email
+    }));
+  }, []);
+
   return (
-    <SurveyContext.Provider value={{ formData, setFormData, handleCheckbox, resetSurvey }}>
+    <SurveyContext.Provider value={{ formData, setFormData, handleCheckbox, resetSurvey, resetSurveyExceptEmail }}>
       {children}
     </SurveyContext.Provider>
   );

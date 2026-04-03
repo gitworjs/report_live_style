@@ -22,7 +22,7 @@ import FinalStep from './components/FinalStep';
 const AppContent = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { formData, setFormData, handleCheckbox, resetSurvey } = useSurvey();
+  const { formData, setFormData, handleCheckbox, resetSurveyExceptEmail } = useSurvey();
   const [isSending, setIsSending] = useState(false);
 
   const routes = useMemo(() => [
@@ -65,15 +65,14 @@ const AppContent = () => {
         const success = await sendSurveyEmail(formData);
         setIsSending(false);
         if (success) {
-          resetSurvey();
-          navigate('/');
-          window.location.reload();
+          resetSurveyExceptEmail();
+          navigate('/intro');
         } else {
           alert('이메일 전송에 실패했습니다. 설정을 확인해주세요.');
         }
       }} isSending={isSending} />
     }
-  ], [formData, isSending, navigate, setFormData, handleCheckbox, resetSurvey]);
+  ], [formData, isSending, navigate, setFormData, handleCheckbox, resetSurveyExceptEmail]);
 
   const currentStepIndex = routes.findIndex(r => r.path === location.pathname);
   const currentSection = routes[currentStepIndex > -1 ? currentStepIndex : 0];
@@ -106,7 +105,7 @@ const AppContent = () => {
         <div className="flex items-center gap-2 font-bold text-xl tracking-tight">
           <Coffee className="text-slate-900" />
           <span onClick={() => {
-            resetSurvey();
+            resetSurveyExceptEmail();
             navigate('/');
           }} className="cursor-pointer">Rest Period</span>
         </div>
