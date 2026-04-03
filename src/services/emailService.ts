@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser';
-import type { FormData } from '../App';
+import type { FormData } from '../types';
 
 export const sendSurveyEmail = async (formData: FormData): Promise<boolean> => {
   const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
