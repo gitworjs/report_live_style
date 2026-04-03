@@ -6,7 +6,6 @@ export type FormData = {
   source: string[];
   deliveryRatio: number;
   soulFood: string;
-  feeling: string;
   convQuality: string;
   happyMoment: string;
   communityIntent: string;

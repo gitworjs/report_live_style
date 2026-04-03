@@ -34,8 +34,9 @@ const EmailStep = ({ formData, setFormData }: EmailStepProps) => {
   };
 
   const handleIdChange = (val: string) => {
-    setEmailId(val);
-    updateEmail(val, emailDomain);
+    const cleanId = val.split('@')[0];
+    setEmailId(cleanId);
+    updateEmail(cleanId, emailDomain);
   };
 
   const handleDomainSelect = (val: string) => {
